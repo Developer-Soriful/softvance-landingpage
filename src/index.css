@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+/* this is for html body */
+html,
+body {
+  background: #ffffff;
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+/* this is for nav bar right button */
+.nav_button {
+  display: flex;
+  padding: 10px 26px;
+  align-items: center;
+  border-radius: 8px;
+  background: #3ba334;
+  box-shadow: 0 8px 16px 0 rgba(57, 164, 50, 0.24);
+}
+
+/* this is for hero  */
+.hero_heading {
+  align-self: stretch;
+  color: var(--07-Grey-800, #212b36);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 92px; /* 109.524% */
+}
+.hero_btn {
+  display: flex;
+  padding: 5px 14px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--Primary-primary-200, #abdaa9);
+  background: #fff;
+  /* height: 49px; */
+}
+
+/* this is for service cards */
+.service_card_heading {
+  align-self: stretch;
+  color: var(--07-Grey-800, #212b36);
+
+  /* H6 */
+  font-family: "Public Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 155.556% */
+}
+.service_card_icon {
+  display: flex;
+  width: 43px;
+  height: 43px;
+  padding: 11px 7px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #ecfceb;
+}
+.service_card_desc {
+  align-self: stretch;
+  color: var(--07-Grey-600, #637381);
+  font-family: "Public Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+/* this is for build for everyone section */
+.build_heading {
+  color: var(--07-Grey-800, #212b36);
+  text-align: center;
+
+  /* H2 */
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px; /* 133.333% */
+}
+
+.build_desc {
+  color: var(--07-Grey-600, #637381);
+  text-align: center;
+  font-family: "Public Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+.build_role {
+  display: flex;
+  font-size: 14px;
+  padding: 3px 20px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  color: #3ba334;
+  border-radius: 60px;
+  border: 1px solid #3ba334;
+}
+.build_role_heading {
+  color: var(--Blue-Gray-900, #0f172a);
+  font-family: "Public Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 26.4px */
+}
+
+.build_role_desc {
+  color: var(--07-Grey-600, #637381);
+  font-family: "Public Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 28.8px */
+}
+.build_role_details1 {
+  display: flex;
+  padding: 4px 0 4px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-left: 3px solid #3ba334;
+}
+.build_role_details2 {
+  display: flex;
+  padding: 4px 0 4px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-left: 3px solid rgba(59, 163, 52, 0.7);
+}
+.build_role_details3 {
+  display: flex;
+  padding: 4px 0 4px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-left: 3px solid rgba(59, 163, 52, 0.4);
+}
