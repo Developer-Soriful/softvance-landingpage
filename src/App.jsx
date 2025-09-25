@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import Service from './components/Service/Service'
 import BuildFor from './components/BuildFor/BuildFor'
 import Users from './components/Users/Users'
+import UserTestimonial from './components/UserTestimonial/UserTestimonial'
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
         <BuildFor />
         {/* this is for user section */}
         <Users />
+        {/* this is for user testimonial section */}
+        <UserTestimonial />
       </div>
     </div>
   )

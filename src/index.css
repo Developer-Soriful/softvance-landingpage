@@ -190,3 +190,26 @@ body {
   background: #fff;
   box-shadow: 0 16px 32px -4px rgba(146, 171, 145, 0.1);
 }
+
+/* this is for user testimonial part */
+.userTestimonial_content_heading {
+  color: var(--07-Grey-800, #212b36);
+  font-family: "Public Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 175% */
+}
+.userTestimonial_content_desc {
+  color: var(--07-Grey-600, #637381);
+  font-family: "Public Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 171.429% */
+}
+.userTestimonial_content {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--Primary-primary-100, #c7e6c5);
+}

@@ -6,8 +6,8 @@ const Nav = () => {
             {/* this is for navbar logo */}
             <img src={images.appLogo} alt="app logo" />
             {/* this is for navbar right button */}
-            <div className="nav_button">
-                <button className="text-[#fff] font-bold">Get Started</button>
+            <div className="nav_button cursor-pointer">
+                <button className="text-[#fff] font-bold cursor-pointer">Get Started</button>
             </div>
         </div>
     )
