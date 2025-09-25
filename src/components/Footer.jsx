@@ -2,10 +2,11 @@ import { images } from "../assets/imgExport"
 
 const Footer = () => {
     return (
-        <div className="flex gap-10 flex-col justify-between px-4 md:px-10 lg:px-[120px]  bg-[#0f3b34] "
+        <div className="flex gap-10 flex-col lg:h-[378px] justify-between px-4 md:px-10 lg:px-[120px]  bg-[#0f3b34] "
             style={{
-                backgroundImage: `url(${images.footer_bg1})`,
+                backgroundImage: `url(${images.footer_group})`,
                 backgroundSize: 'cover',
+                backgroundPosition: 'end'
             }}>
             <div className=" mt-10 md:mt-[99px] w-full flex flex-col gap-10 md:flex-row justify-around md:justify-between items-start md:items-center ">
                 {/* this is for footer logo part*/}
@@ -62,7 +63,7 @@ const Footer = () => {
                 {/* this is for download part here */}
                 <div>
                     <div className="flex gap-[18px] text-white">
-                        <div className="hero_btn">
+                        <div className="hero_btn2 border-[#347C30]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" fill="none">
                                 <path d="M23.2807 17.8883C23.2969 16.6327 23.6309 15.4015 24.2517 14.3094C24.8725 13.2173 25.7598 12.2997 26.8312 11.6421C26.1506 10.6715 25.2527 9.87278 24.2089 9.30931C23.165 8.74585 22.004 8.43317 20.8179 8.39612C18.2879 8.13095 15.8351 9.90776 14.5459 9.90776C13.2317 9.90776 11.2466 8.42245 9.10911 8.46636C7.72649 8.51096 6.37903 8.9124 5.198 9.63158C4.01697 10.3508 3.04266 11.3631 2.36999 12.5701C-0.543802 17.6073 1.62963 25.0104 4.42084 29.0822C5.81736 31.076 7.44947 33.3031 9.58508 33.2242C11.6749 33.1376 12.4554 31.8936 14.978 31.8936C17.4771 31.8936 18.2094 33.2242 20.3884 33.1739C22.6308 33.1376 24.0437 31.1713 25.3912 29.1586C26.3946 27.7379 27.1667 26.1678 27.679 24.5063C26.3761 23.9561 25.2643 23.0352 24.4822 21.8583C23.7001 20.6814 23.2822 19.3007 23.2807 17.8883Z" fill="white" />
                                 <path d="M19.1648 5.71799C20.3875 4.25242 20.9899 2.36868 20.8441 0.466797C18.9761 0.662695 17.2506 1.55412 16.0114 2.96346C15.4055 3.65196 14.9414 4.45294 14.6457 5.32062C14.3501 6.18829 14.2286 7.10565 14.2882 8.02024C15.2225 8.02984 16.1468 7.82763 16.9916 7.42884C17.8363 7.03006 18.5794 6.44509 19.1648 5.71799Z" fill="white" />
@@ -72,7 +73,7 @@ const Footer = () => {
                                 <p className="font-semibold text-[18px]">App Store</p>
                             </div>
                         </div>
-                        <div className="hero_btn text-white">
+                        <div className="hero_btn2 text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="27" viewBox="0 0 23 27" fill="none">
                                 <path d="M10.7381 12.9168L0.0976562 24.3398C0.0986556 24.3418 0.0986555 24.3448 0.0996549 24.3468C0.426454 25.5872 1.54577 26.5 2.87495 26.5C3.40663 26.5 3.90532 26.3544 4.33306 26.0997L4.36704 26.0795L16.3437 19.0892L10.7381 12.9168Z" fill="#EA4335" />
                                 <path d="M21.5033 10.9717L21.4933 10.9646L16.3225 7.93296L10.4971 13.1764L16.3435 19.088L21.4863 16.0867C22.3878 15.5934 23.0004 14.6321 23.0004 13.5241C23.0004 12.4223 22.3968 11.466 21.5033 10.9717Z" fill="#FBBC04" />
@@ -125,7 +126,7 @@ const Footer = () => {
             {/* this is for copyright part */}
             <div className="">
                 <p className=" text-gray-500 text-sm">
-                    © {new Date().getFullYear()} Your Company. All rights reserved.
+                    © {new Date().getFullYear()} ScapeSync. All Rights Reserved
                 </p>
             </div>
         </div>

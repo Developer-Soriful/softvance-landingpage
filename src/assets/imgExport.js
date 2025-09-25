@@ -18,9 +18,11 @@ import ellipse21 from '../assets/ellipse21.png'
 import ellipse29 from '../assets/ellipse29.png'
 import ellipse30 from '../assets/ellipse30.png'
 import ellipse31 from '../assets/ellipse31.png'
-import footer_bg from '../assets/footer_bg.png'
 import footer_bg1 from '../assets/footer_bg1.png'
-
+import footer_group from '../assets/footer_group.png'
+import owner_img from '../assets/owner_img.png'
+import client_img from '../assets/client_img.png'
+import userSucc from '../assets/userSucc.png'
 export const images = {
     appLogo,
     hero_logo1,
@@ -42,6 +44,9 @@ export const images = {
     , ellipse29
     , ellipse30
     , ellipse31,
-    footer_bg,
-    footer_bg1
+    footer_bg1,
+    footer_group,
+    owner_img,
+    client_img,
+    userSucc
 }
