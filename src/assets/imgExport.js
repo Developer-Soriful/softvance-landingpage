@@ -17,6 +17,8 @@ import build_heading_logo1 from '../assets/build_heading_logo1.png'
 import ellipse21 from '../assets/ellipse21.png'
 import ellipse29 from '../assets/ellipse29.png'
 import ellipse30 from '../assets/ellipse30.png'
+import ellipse31 from '../assets/ellipse31.png'
+
 export const images = {
     appLogo,
     hero_logo1,
@@ -37,4 +39,5 @@ export const images = {
     , ellipse21
     , ellipse29
     , ellipse30
+    , ellipse31
 }

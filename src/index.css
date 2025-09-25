@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
 /* this is for html body */
@@ -143,4 +144,49 @@ body {
   align-items: flex-start;
   gap: 24px;
   border-left: 3px solid rgba(59, 163, 52, 0.4);
+}
+
+/* this is for user section */
+.user_heading {
+  color: var(--07-Grey-800, #212b36);
+  text-align: center;
+
+  /* H2 */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px; /* 133.333% */
+}
+
+.user_card_heading {
+  color: var(--07-Grey-800, #212b36);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.user_card_role {
+  color: var(--07-Grey-600, #637381);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.user_card_comment {
+  color: var(--07-Grey-600, #637381);
+  font-family: "Public Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: -0.16px;
+}
+.user_card {
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 16px 32px -4px rgba(146, 171, 145, 0.1);
 }
