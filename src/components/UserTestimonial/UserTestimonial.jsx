@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { testimonials } from "."; // jodi testimonials e FAQ data thake
+import { testimonials } from ".";
 
 const UserTestimonial = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -22,21 +22,26 @@ const UserTestimonial = () => {
                     <div className="userTestimonial_content flex flex-col gap-6" key={testimonial.id}>
                         <div onClick={() => toggle(index)} className="flex justify-between items-center cursor-pointer">
                             <h2 className="userTestimonial_content_heading">{testimonial.question}</h2>
-                            <button className="w-10 cursor-pointer">
+                            <button className="w-10 cursor-pointer transition-transform duration-300">
                                 {openIndex === index ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none" className="transition-transform duration-300 rotate-180">
                                         <path opacity="0.8" d="M3 7.5H14" stroke="#212B36" strokeLinecap="round" />
                                     </svg>
                                 ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none" className="transition-transform duration-300">
                                         <path opacity="0.8" d="M8.5 3V13M3.5 8H13.5" stroke="#212B36" strokeLinecap="round" />
                                     </svg>
                                 )}
                             </button>
                         </div>
-                        <p className="userTestimonial_content_desc lg:mx-[64px]">
-                            {openIndex === index && testimonial.answer}
-                        </p>
+                        
+                        {openIndex === index && (
+                            <div className="animate-fadeIn">
+                                <p className="userTestimonial_content_desc lg:mx-[64px]">
+                                    {testimonial.answer}
+                                </p>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>

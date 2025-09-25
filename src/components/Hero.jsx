@@ -2,7 +2,7 @@ import { images } from "../assets/imgExport"
 
 const Hero = () => {
     return (
-        <div className="flex  flex-col lg:flex-row justify-between items-center  mx-4 md:mx-10 lg:ml-[120px]">
+        <div className="flex  flex-col lg:flex-row justify-between items-center mt-[100px] md:mt-0 mx-4 md:mx-10 lg:ml-[120px]">
             {/* hero highlight text section */}
             <div className="flex-1">
                 <div className="flex flex-col gap-4 relative">

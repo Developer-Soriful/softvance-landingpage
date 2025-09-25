@@ -9,7 +9,7 @@ const BuildFor = () => {
                     <img className="absolute -bottom-1 right-0" src={images.build_heading_logo1} alt="Build for Everyone" />
                     <h1 className="build_heading text-2xl md:text-4xl lg:text-[48px] z-10">Build for Everyone</h1>
                 </div>
-                <p className="text-center build_desc">Whether you're booking services, managing tasks, or running operations, we've <br className="hidden md:block" /> designed the perfect experience for you.</p>
+                <p className="text-start md:text-center build_desc">Whether you're booking services, managing tasks, or running operations, we've <br className="hidden md:block" /> designed the perfect experience for you.</p>
             </div>
             {/* builder role */}
             <div className="mt-[94px] flex flex-col gap-[40px]">

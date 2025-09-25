@@ -4,6 +4,7 @@ import Service from './components/Service/Service'
 import BuildFor from './components/BuildFor/BuildFor'
 import Users from './components/Users/Users'
 import UserTestimonial from './components/UserTestimonial/UserTestimonial'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
         <Users />
         {/* this is for user testimonial section */}
         <UserTestimonial />
+        {/* this is for footer section */}
+        <Footer />
       </div>
     </div>
   )

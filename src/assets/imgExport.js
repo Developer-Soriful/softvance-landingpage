@@ -18,6 +18,8 @@ import ellipse21 from '../assets/ellipse21.png'
 import ellipse29 from '../assets/ellipse29.png'
 import ellipse30 from '../assets/ellipse30.png'
 import ellipse31 from '../assets/ellipse31.png'
+import footer_bg from '../assets/footer_bg.png'
+import footer_bg1 from '../assets/footer_bg1.png'
 
 export const images = {
     appLogo,
@@ -39,5 +41,7 @@ export const images = {
     , ellipse21
     , ellipse29
     , ellipse30
-    , ellipse31
+    , ellipse31,
+    footer_bg,
+    footer_bg1
 }
