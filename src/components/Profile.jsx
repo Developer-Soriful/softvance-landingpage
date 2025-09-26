@@ -5,7 +5,8 @@ import { useAuth } from "../context/useAuth";
 const Profile = () => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
-
+    console.log(user);
+    
     if (!user) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -48,7 +49,7 @@ const Profile = () => {
             </div>
 
             {/* Profile Content */}
-            <div className="max-w-md mx-auto px-4 py-8">
+            <div className=" max-w-md mx-auto lg:pt-[170px] px-4 py-8 ">
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                     {/* Profile Header */}
                     <div className="text-center mb-6">

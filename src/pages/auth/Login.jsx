@@ -3,13 +3,14 @@ import { images } from "../../assets/imgExport";
 import { IoEyeSharp } from "react-icons/io5";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import axios from "axios";
+import { useAuth } from "../../context/useAuth";
 
 const Login = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { loginUser } = useAuth(); 
 
   const toggle = () => setOpen(!open);
 
@@ -19,52 +20,21 @@ const Login = () => {
     setError("");
 
     const formData = new FormData(e.target);
-    const loginData = {
-      email: formData.get('email'),
-      password: formData.get('password'),
-      remember_me: formData.get('remember_me') ? 'true' : 'false'
-    };
-
-    console.log('Login data:', loginData);
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const remember_me = formData.get("remember_me") ? "true" : "false";
 
     try {
-      const response = await axios.post(
-        "https://apitest.softvencefsd.xyz/api/login",
-        loginData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          }
-        }
-      );
-
-      console.log('Full API response:', response); // ✅ সম্পূর্ণ response log করুন
-      console.log('Response data:', response.data);
-      console.log('Success status:', response.data.success);
-      console.log('Token:', response.data.token);
-
-      if (response.data) {
-        setTimeout(() => {
-          navigate("/"); // ✅ ProtectedRoutes er race condition fix
-        }, 50);
-
-        localStorage.setItem('authToken', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data));
-        console.log('Token saved to localStorage');
-
-        console.log('Navigating to home page...');
-        navigate("/");
-        console.log('Navigation called');
-        // Save token to localStorage
-
-      } else {
-        setError(response.data.message || "Login failed - success flag is false");
-      }
-
+      // ✅ AuthProvider er loginUser call
+      await loginUser(email, password, remember_me);
+      navigate("/", { replace: true }); // login success → home
     } catch (error) {
       console.error("Login failed:", error);
       if (error.response) {
-        setError(error.response.data?.message || "Login failed. Please check your credentials.");
+        setError(
+          error.response.data?.message ||
+          "Login failed. Please check your credentials."
+        );
       } else if (error.request) {
         setError("Network error. Please check your connection.");
       } else {
@@ -74,6 +44,7 @@ const Login = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="min-h-screen relative flex justify-center items-center">
       {/* logo */}
@@ -86,7 +57,9 @@ const Login = () => {
         {/* heading */}
         <div className="flex flex-col gap-2 justify-center items-center">
           <h1 className="formHeading">Welcome to ScapeSync</h1>
-          <p className="formDesc">Please share your login details so you can access the website.</p>
+          <p className="formDesc">
+            Please share your login details so you can access the website.
+          </p>
         </div>
 
         {/* Error Message */}
@@ -140,9 +113,7 @@ const Login = () => {
                 className="cursor-pointer"
                 disabled={loading}
               />
-              <p className="text-[#212B36] text-[14px]">
-                Remember me
-              </p>
+              <p className="text-[#212B36] text-[14px]">Remember me</p>
             </div>
 
             <Link
@@ -171,11 +142,29 @@ const Login = () => {
 
           {/* Google Login */}
           <div className="flex justify-center items-center gap-4 googleBtn py-[11px] cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-              <path d="M4.18173 10.2128C4.18173 9.56415 4.28946 8.94231 4.48173 8.35905L1.11627 5.78906C0.460366 7.12081 0.0908203 8.6214 0.0908203 10.2128C0.0908203 11.8028 0.459911 13.3025 1.11491 14.6333L4.47855 12.0583C4.28809 11.4778 4.18173 10.8582 4.18173 10.2128Z" fill="#FBBC05" />
-              <path d="M10.0908 4.31204C11.4998 4.31204 12.7726 4.81133 13.7726 5.62835L16.6817 2.72338C14.9089 1.18012 12.6362 0.226929 10.0908 0.226929C6.13894 0.226929 2.74257 2.4869 1.11621 5.78903L4.48167 8.35901C5.25712 6.00508 7.46757 4.31204 10.0908 4.31204Z" fill="#EB4335" />
-              <path d="M10.0908 16.1134C7.46757 16.1134 5.25712 14.4204 4.48167 12.0665L1.11621 14.636C2.74257 17.9386 6.13894 20.1986 10.0908 20.1986C12.5298 20.1986 14.8585 19.3325 16.6062 17.7098L13.4117 15.2401C12.5103 15.808 11.3753 16.1134 10.0908 16.1134Z" fill="#34A853" />
-              <path d="M19.6363 10.2128C19.6363 9.62269 19.5454 8.98723 19.409 8.39716H10.0908V12.2553H15.4545C15.1863 13.5707 14.4563 14.582 13.4117 15.2402L16.6063 17.7098C18.4422 16.0059 19.6363 13.4677 19.6363 10.2128Z" fill="#4285F4" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M4.18173 10.2128C4.18173 9.56415 4.28946 8.94231 4.48173 8.35905L1.11627 5.78906C0.460366 7.12081 0.0908203 8.6214 0.0908203 10.2128C0.0908203 11.8028 0.459911 13.3025 1.11491 14.6333L4.47855 12.0583C4.28809 11.4778 4.18173 10.8582 4.18173 10.2128Z"
+                fill="#FBBC05"
+              />
+              <path
+                d="M10.0908 4.31204C11.4998 4.31204 12.7726 4.81133 13.7726 5.62835L16.6817 2.72338C14.9089 1.18012 12.6362 0.226929 10.0908 0.226929C6.13894 0.226929 2.74257 2.4869 1.11621 5.78903L4.48167 8.35901C5.25712 6.00508 7.46757 4.31204 10.0908 4.31204Z"
+                fill="#EB4335"
+              />
+              <path
+                d="M10.0908 16.1134C7.46757 16.1134 5.25712 14.4204 4.48167 12.0665L1.11621 14.636C2.74257 17.9386 6.13894 20.1986 10.0908 20.1986C12.5298 20.1986 14.8585 19.3325 16.6062 17.7098L13.4117 15.2401C12.5103 15.808 11.3753 16.1134 10.0908 16.1134Z"
+                fill="#34A853"
+              />
+              <path
+                d="M19.6363 10.2128C19.6363 9.62269 19.5454 8.98723 19.409 8.39716H10.0908V12.2553H15.4545C15.1863 13.5707 14.4563 14.582 13.4117 15.2402L16.6063 17.7098C18.4422 16.0059 19.6363 13.4677 19.6363 10.2128Z"
+                fill="#4285F4"
+              />
             </svg>
             <span className="googleBtnText">Continue with Google</span>
           </div>

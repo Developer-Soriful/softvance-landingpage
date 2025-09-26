@@ -99,7 +99,8 @@ const Otp = () => {
     const handleResendOtp = async () => {
         // '/api/resend_otp'
         const result = await makeApiCall("/api/resend_otp", { email });
-
+        console.log(result);
+        
         if (result.success) {
             setMessage({ text: "New OTP sent to your email!", type: "success" });
             setResendCountdown(60);
