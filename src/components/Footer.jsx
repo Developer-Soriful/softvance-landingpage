@@ -2,13 +2,13 @@ import { images } from "../assets/imgExport"
 
 const Footer = () => {
     return (
-        <div className="flex gap-10 flex-col lg:h-[378px] justify-between px-4 md:px-10 lg:px-[120px]  bg-[#0f3b34] "
+        <div className="flex gap-10 flex-col lg:h-[378px]  justify-between px-4 md:px-10 lg:px-[120px]  bg-[#0f3b34] "
             style={{
                 backgroundImage: `url(${images.footer_group})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'end'
             }}>
-            <div className=" mt-10 md:mt-[99px] w-full flex flex-col gap-10 md:flex-row justify-around md:justify-between items-start md:items-center ">
+            <div className=" mt-10 md:mt-[99px] w-full flex flex-col gap-10 lg:flex-row  lg:justify-between ">
                 {/* this is for footer logo part*/}
                 <div className="flex flex-col  gap-[99px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="207" height="76" viewBox="0 0 207 76" fill="none">

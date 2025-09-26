@@ -3,10 +3,12 @@ import { images } from "../assets/imgExport";
 import { useAuth } from "../context/useAuth";
 
 const Profile = () => {
-    const { user, logout } = useAuth();
+    const { user, logout, loading } = useAuth();
     const navigate = useNavigate();
+    if (loading) return <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
+    </div>
     console.log(user);
-    
     if (!user) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -14,7 +16,7 @@ const Profile = () => {
                     <p className="text-gray-600 mb-4">Please login to view profile</p>
                     <button
                         onClick={() => navigate("/login")}
-                        className="bg-green-500 text-white px-6 py-2 rounded-lg"
+                        className="bg-[#3a8b36] cursor-pointer text-white font-bold px-6 py-2 rounded-lg"
                     >
                         Login
                     </button>
@@ -24,34 +26,22 @@ const Profile = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Header */}
-            <div className="bg-white shadow-sm">
-                <div className="max-w-7xl mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <img
-                                src={images.appLogo}
-                                alt="logo"
-                                className="h-8 cursor-pointer"
-                                onClick={() => navigate("/")}
-                            />
-                            <h1 className="text-xl font-bold text-gray-900">My Profile</h1>
-                        </div>
-                        <button
-                            onClick={() => navigate("/")}
-                            className="text-green-600 hover:text-green-700 text-sm font-medium"
-                        >
-                            Back to Home
-                        </button>
-                    </div>
-                </div>
+        <div className="min-h-screen flex justify-center items-center relative bg-gray-50">
+            {/* logo */}
+            <div className="absolute top-0 left-0">
+                <img className="px-[32px] py-6" src={images.appLogo} alt="logo" />
             </div>
 
             {/* Profile Content */}
-            <div className=" max-w-md mx-auto lg:pt-[170px] px-4 py-8 ">
+            <div className="w-full lg:w-[480px] px-4 py-8 ">
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                     {/* Profile Header */}
+                    <button
+                        onClick={() => navigate("/")}
+                        className="text-green-600 hover:text-green-700 text-sm font-medium cursor-pointer"
+                    >
+                        Back to Home
+                    </button>
                     <div className="text-center mb-6">
                         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                             <span className="text-xl font-bold text-green-600">
@@ -70,12 +60,8 @@ const Profile = () => {
                             <h3 className="text-sm font-semibold text-gray-900 mb-2">Account Information</h3>
                             <div className="space-y-2">
                                 <div className="flex justify-between">
-                                    <span className="text-sm text-gray-500">User ID:</span>
-                                    <span className="text-sm font-medium">{user.id}</span>
-                                </div>
-                                <div className="flex justify-between">
                                     <span className="text-sm text-gray-500">Email:</span>
-                                    <span className="text-sm font-medium">{user.email}</span>
+                                    <span className="text-sm font-medium">{user.data.email}</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span className="text-sm text-gray-500">Status:</span>
@@ -110,7 +96,7 @@ const Profile = () => {
                     <div className="mt-6">
                         <button
                             onClick={logout}
-                            className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 font-medium"
+                            className="w-full cursor-pointer bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 font-medium"
                         >
                             Logout
                         </button>

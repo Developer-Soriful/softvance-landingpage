@@ -8,7 +8,7 @@ const ProtectedRoutes = ({ children }) => {
 
   useEffect(() => {
     if (!loading && !user) {
-      navigate('/login', { replace: true });
+      navigate('/user_role', { replace: true });
     }
   }, [loading, user, navigate]);
 
