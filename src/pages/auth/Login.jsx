@@ -10,7 +10,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { loginUser } = useAuth(); 
+  const { loginUser } = useAuth();
 
   const toggle = () => setOpen(!open);
 
@@ -111,6 +111,7 @@ const Login = () => {
                 name="remember_me"
                 type="checkbox"
                 className="cursor-pointer"
+                required
                 disabled={loading}
               />
               <p className="text-[#212B36] text-[14px]">Remember me</p>

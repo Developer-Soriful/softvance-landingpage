@@ -112,7 +112,7 @@ const OtpForget = () => {
         // Development期间 mock success
         if (process.env.NODE_ENV === 'development') {
             setMessage({ text: "OTP verified successfully (Development Mode)!", type: "success" });
-            setTimeout(() => navigate("/user_create_succ"), 2000);
+            setTimeout(() => navigate("/new_pass"), 2000);
             return;
         }
 
@@ -125,8 +125,7 @@ const OtpForget = () => {
         if (result.success) {
             setMessage({ text: "Email verified successfully!", type: "success" });
             localStorage.removeItem('forgotPasswordEmail');
-            setTimeout(() => navigate("/user_create_succ"), 2000);
-            // navigate
+            setTimeout(() => navigate("/new_pass"), 2000);
         } else {
             setMessage({ text: result.error, type: "error" });
         }

@@ -9,6 +9,7 @@ import OtpForget from "../pages/auth/OtpForget";
 import App from "../App";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Profile from "../components/Profile";
+import NewPass from "../pages/auth/NewPass";
 
 export const router = createBrowserRouter([
   {
@@ -47,5 +48,10 @@ export const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />
+  }
+  ,
+  {
+    path: "/new_pass",
+    element: <NewPass />
   }
 ]);
