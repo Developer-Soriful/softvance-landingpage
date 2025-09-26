@@ -18,7 +18,11 @@ body {
   background: #3ba334;
   box-shadow: 0 8px 16px 0 rgba(57, 164, 50, 0.24);
 }
-
+.nav_button:hover {
+  background: #33a12e; /* Slightly darker green */
+  transform: translateY(-3px); /* Subtle lift effect */
+  box-shadow: 0 12px 20px 0 rgba(57, 164, 50, 0.3); /* Stronger shadow on hover */
+}
 /* this is for hero  */
 .hero_heading {
   align-self: stretch;

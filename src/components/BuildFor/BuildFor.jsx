@@ -2,9 +2,14 @@ import { images } from "../../assets/imgExport"
 
 const BuildFor = () => {
     return (
-        <div className="mb-[170px] mx-4 md:mx-10 lg:mx-[120px]">
+        <div className="mb-[170px] relative mx-4 md:mx-10 lg:mx-[120px]">
+            {/* this is absolute img 1 */}
+            <img className=" absolute top-25 lg:left-[40%]" src={images.absolute1} alt="" />
+            {/* this is absolute img 2 */}
+            <img className=" absolute top-25 right-0" src={images.absolute2} alt="" />
             {/* this is for build for everyone heading part */}
-            <div className=" flex flex-col justify-center items-center gap-3">
+            <div className=" flex flex-col justify-center items-center gap-3" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="relative">
                     <img className="absolute -bottom-1 right-0" src={images.build_heading_logo1} alt="Build for Everyone" />
                     <h1 className="build_heading text-2xl md:text-4xl lg:text-[48px] z-10">Build for Everyone</h1>
@@ -14,7 +19,8 @@ const BuildFor = () => {
             {/* builder role */}
             <div className="mt-[94px] flex flex-col gap-[40px]">
                 {/* this one for builder user role */}
-                <div className="flex flex-col lg:flex-row justify-between items-center">
+                <div className="flex flex-col lg:flex-row justify-between items-center" data-aos="fade-up"
+                    data-aos-duration="3000">
                     {/* this is for user role text */}
                     <div className="flex flex-col gap-[32px]">
                         <div className="flex flex-col gap-4">
@@ -41,7 +47,8 @@ const BuildFor = () => {
                     </div>
                 </div>
                 {/* this is for business role */}
-                <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
+                <div className="flex flex-col-reverse lg:flex-row justify-between items-center" data-aos="fade-up"
+                    data-aos-duration="3000">
                     {/* this is for user role image */}
                     <div className="relative">
                         <img className="absolute -bottom-1 right-0" src={images.rec_bottom_bluer} alt="" />
@@ -67,7 +74,8 @@ const BuildFor = () => {
 
                 </div>
                 {/* this one for builder Employees role */}
-                <div className="flex flex-col lg:flex-row justify-between items-center">
+                <div className="flex flex-col lg:flex-row justify-between items-center" data-aos="fade-up"
+                    data-aos-duration="3000">
                     {/* this is for user role text */}
                     <div className="flex flex-col gap-[32px]">
                         <div className="flex flex-col gap-4">

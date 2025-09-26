@@ -23,6 +23,8 @@ import footer_group from '../assets/footer_group.png'
 import owner_img from '../assets/owner_img.png'
 import client_img from '../assets/client_img.png'
 import userSucc from '../assets/userSucc.png'
+import absolute1 from '../assets/absolute1.svg'
+import absolute2 from '../assets/absolute2.png'
 export const images = {
     appLogo,
     hero_logo1,
@@ -48,5 +50,7 @@ export const images = {
     footer_group,
     owner_img,
     client_img,
-    userSucc
+    userSucc,
+    absolute1,
+    absolute2
 }

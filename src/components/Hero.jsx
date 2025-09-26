@@ -4,7 +4,8 @@ const Hero = () => {
     return (
         <div className="flex  flex-col lg:flex-row justify-between items-center mt-[100px] md:mt-0 mx-4 md:mx-10 lg:ml-[120px]">
             {/* hero highlight text section */}
-            <div className="flex-1">
+            <div className="flex-1" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="flex flex-col gap-4 relative">
                     {/* this is for hero textImg 2 */}
                     <img className="absolute -bottom-3 lg:hidden" src={images.hero_logo2} alt="" />
@@ -45,7 +46,8 @@ const Hero = () => {
                 </div>
             </div>
             {/* hero right rectangle */}
-            <div className="relative flex-1">
+            <div className="relative flex-1" data-aos="fade-up"
+                data-aos-duration="3000">
                 <img className="absolute bottom-0" src={images.rec_bottom_bluer} alt="" />
                 <img src={images.hero_rec} alt="hero rec" />
             </div>

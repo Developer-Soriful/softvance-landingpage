@@ -4,11 +4,14 @@ import './index.css'
 import AuthProvider from './context/AuthProvider'
 import { RouterProvider } from 'react-router'
 import { router } from './routes/router'
+import AppWrapper from './components/AppWrapper'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <AppWrapper>
+        <RouterProvider router={router} />
+      </AppWrapper>
     </AuthProvider>
   </StrictMode>,
 )

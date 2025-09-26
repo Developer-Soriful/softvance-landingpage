@@ -11,7 +11,8 @@ const UserTestimonial = () => {
     return (
         <div className="flex flex-col gap-[60px] mb-[100px] lg:mb-[160px] mx-4 md:mx-10 lg:mx-[120px] z-40">
             {/* this is for user testimonial heading part */}
-            <div>
+            <div data-aos="fade-up"
+                data-aos-duration="3000">
                 <h1 className="build_heading text-2xl md:text-4xl lg:text-[48px] z-10">Frequently Asked Questions</h1>
                 <p className="build_desc">Quick answers to help you get the most out of our app.</p>
             </div>
@@ -19,7 +20,12 @@ const UserTestimonial = () => {
             {/* this is for user testimonial content part */}
             <div className="flex flex-col gap-4">
                 {testimonials.map((testimonial, index) => (
-                    <div className="userTestimonial_content flex flex-col gap-6" key={testimonial.id}>
+                    <div
+                        data-aos="fade-up"
+                        data-aos-duration={1000 + index * 500} // minimum duration + stagger
+                        className="userTestimonial_content flex flex-col gap-6"
+                        key={testimonial.id}
+                    >
                         <div onClick={() => toggle(index)} className="flex justify-between items-center cursor-pointer">
                             <h2 className="userTestimonial_content_heading">{testimonial.question}</h2>
                             <button className="w-10 cursor-pointer transition-transform duration-300">
@@ -34,17 +40,16 @@ const UserTestimonial = () => {
                                 )}
                             </button>
                         </div>
-                        
+
                         {openIndex === index && (
                             <div className="animate-fadeIn">
-                                <p className="userTestimonial_content_desc lg:mx-[64px]">
-                                    {testimonial.answer}
-                                </p>
+                                <p className="userTestimonial_content_desc lg:mx-[64px]">{testimonial.answer}</p>
                             </div>
                         )}
                     </div>
                 ))}
             </div>
+
         </div>
     )
 }

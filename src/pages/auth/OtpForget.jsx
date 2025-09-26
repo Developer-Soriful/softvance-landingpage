@@ -126,6 +126,7 @@ const OtpForget = () => {
             setMessage({ text: "Email verified successfully!", type: "success" });
             localStorage.removeItem('forgotPasswordEmail');
             setTimeout(() => navigate("/user_create_succ"), 2000);
+            // navigate
         } else {
             setMessage({ text: result.error, type: "error" });
         }

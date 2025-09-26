@@ -8,7 +8,7 @@ const Nav = () => {
             <img src={images.appLogo} alt="app logo" />
             {/* this is for navbar right button */}
             <Link to="/profile">
-                <div className="nav_button cursor-pointer">
+                <div className="nav_button transition-all duration-200 cursor-pointer">
                     <button className="text-[#fff] font-bold cursor-pointer">Get Started</button>
                 </div>
             </Link>
