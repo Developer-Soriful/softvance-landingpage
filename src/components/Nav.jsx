@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import { images } from "../assets/imgExport"
 
 const Nav = () => {
@@ -6,9 +7,11 @@ const Nav = () => {
             {/* this is for navbar logo */}
             <img src={images.appLogo} alt="app logo" />
             {/* this is for navbar right button */}
-            <div className="nav_button cursor-pointer">
-                <button className="text-[#fff] font-bold cursor-pointer">Get Started</button>
-            </div>
+            <Link to="/profile">
+                <div className="nav_button cursor-pointer">
+                    <button className="text-[#fff] font-bold cursor-pointer">Get Started</button>
+                </div>
+            </Link>
         </div>
     )
 }

@@ -250,6 +250,7 @@ body {
 
 /* this is for role section  */
 .role {
+  height: 238px;
   flex-shrink: 0;
   border-radius: 16px;
   border: 1px solid var(--07-Grey-300, #dfe3e8);
@@ -268,8 +269,6 @@ body {
 }
 .role_desc {
   color: var(--07-Grey-600, #637381);
-  text-align: center;
-
   /* Subtitle1 */
   font-family: "Public Sans";
   font-size: 16px;

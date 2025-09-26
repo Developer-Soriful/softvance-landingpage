@@ -43,6 +43,8 @@ const Register = () => {
 
       // Success handling - Email OTP page-এ পাঠানো
       if (res.data) {
+        localStorage.setItem('authToken', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data));
         navigate("/otp", {
           state: {
             email: apiData.email,
@@ -72,37 +74,6 @@ const Register = () => {
     }
   };
 
-  // Alternative: Using FormData directly (if API requires multipart)
-  const handleSubmitWithFormData = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('first_name', e.target.firstName.value);
-    formData.append('last_name', e.target.lastName.value);
-    formData.append('email', e.target.email.value);
-    formData.append('password', e.target.password.value);
-    formData.append('password_confirmation', e.target.confirmPassword.value);
-    formData.append('terms', e.target.terms.checked ? 'true' : 'false');
-
-    try {
-      const res = await axios.post(
-        "https://apitest.softvencefsd.xyz/api/register",
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          }
-        }
-      );
-
-      console.log('Registration successful:', res.data);
-      navigate("/login");
-
-    } catch (error) {
-      console.error("Registration failed:", error.response?.data || error);
-      alert(error.response?.data?.message || 'Registration failed');
-    }
-  };
 
   return (
     <div className="min-h-screen relative flex justify-center items-center">
@@ -208,6 +179,7 @@ const Register = () => {
             Create Account
           </button>
 
+          {/* Divider */}
           <div className="relative border border-[#e5e8eb] my-4">
             <span className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-[#637381]">
               OR
