@@ -16,7 +16,8 @@ const NewPass = () => {
 
     // get token from location state or URL query
     const token = location.state?.token || new URLSearchParams(location.search).get("token");
-
+    console.log(token);
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");

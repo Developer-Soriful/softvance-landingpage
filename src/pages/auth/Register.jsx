@@ -8,7 +8,8 @@ import { useAuth } from "../../context/useAuth";
 const Register = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
-  const { registerUser } = useAuth()
+  const [loading, setLoading] = useState(false); // ✅ Loading state
+  const { registerUser } = useAuth();
   const navigate = useNavigate();
 
   const toggle = () => setOpen(!open);
@@ -16,10 +17,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // ✅ Start loading
 
     const formData = new FormData(e.target);
 
-    // API format as required
     const apiData = {
       first_name: formData.get("firstName"),
       last_name: formData.get("lastName"),
@@ -30,14 +31,13 @@ const Register = () => {
     };
 
     try {
-      const res = await registerUser(apiData); 
+      const res = await registerUser(apiData);
 
       if (res) {
-        // 👇 Navigate to OTP page
         navigate("/otp", {
           state: {
             email: apiData.email,
-            userData: res.user, // backend response অনুযায়ী adjust করো
+            userData: res.user,
           },
         });
       }
@@ -49,6 +49,8 @@ const Register = () => {
       } else {
         alert("Something went wrong. Please try again.");
       }
+    } finally {
+      setLoading(false); // ✅ Stop loading
     }
   };
 
@@ -60,7 +62,7 @@ const Register = () => {
       </div>
 
       {/* form */}
-      <div className="flex flex-col justify-center items-center w-[480px] gap-[64px]">
+      <div className="flex flex-col justify-center items-center w-[90%] mx-auto  mt-[100px] lg:mt-0 lg:w-[480px] gap-[64px]">
         <div className="flex flex-col gap-2 justify-center items-center">
           <h1 className="formHeading">Create your Account</h1>
           <p className="formDesc">When sports Meets smart Tech.</p>
@@ -68,14 +70,14 @@ const Register = () => {
 
         <form onSubmit={handleSubmit} className="flex flex-col w-full gap-6">
           {/* First + Last Name */}
-          <div className="flex w-full gap-4">
+          <div className="flex flex-col lg:flex-row w-full gap-4">
             <div className="relative w-full">
               <span className="absolute left-4 -top-3 text-[#919EAB] bg-[#fff] px-2">
                 First Name
               </span>
               <input
                 name="firstName"
-                className="formInput focus:outline-none"
+                className="formInput focus:outline-none w-full"
                 type="text"
                 placeholder="First Name"
                 required
@@ -151,9 +153,12 @@ const Register = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="createAccountBtn text-[#fff] text-[16px] font-bold"
+            disabled={loading}
+            className={`createAccountBtn text-[#fff] text-[16px] font-bold ${
+              loading ? "opacity-70 cursor-not-allowed" : ""
+            }`}
           >
-            Create Account
+            {loading ? "Registering..." : "Create Account"}
           </button>
 
           <p className="text-[#212B36] text-center">

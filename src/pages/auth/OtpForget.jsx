@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { images } from "../../assets/imgExport";
-import { useNavigate, useLocation } from "react-router"; 
+import { useNavigate, useLocation, data } from "react-router";
 import { apiRequest } from "../../api/api";
 
 const OtpForget = () => {
@@ -12,7 +12,7 @@ const OtpForget = () => {
     const [resendCountdown, setResendCountdown] = useState(0);
 
     const navigate = useNavigate();
-    const location = useLocation(); 
+    const location = useLocation();
     const inputRefs = useRef([]);
 
     // ✅ Email extract from navigation state or localStorage
@@ -40,7 +40,7 @@ const OtpForget = () => {
                 console.log("Email from localStorage:", storedEmail);
             } else {
                 console.log("No email found, using default");
-                setEmail("user@gmail.com"); // Fallback
+                setEmail("user@gmail.com");
             }
         };
 
@@ -61,7 +61,6 @@ const OtpForget = () => {
         setMessage({ text: "", type: "" });
 
         try {
-            // ✅ FormData তৈরি করুন (API expects multipart/form-data)
             const formData = new FormData();
             Object.keys(data).forEach(key => {
                 formData.append(key, data[key]);
@@ -109,7 +108,6 @@ const OtpForget = () => {
             return;
         }
 
-        // Development期间 mock success
         if (process.env.NODE_ENV === 'development') {
             setMessage({ text: "OTP verified successfully (Development Mode)!", type: "success" });
             setTimeout(() => navigate("/new_pass"), 2000);
@@ -123,15 +121,18 @@ const OtpForget = () => {
         });
 
         if (result.success) {
+            const token = result.data.token || result.data.data?.token;
+            console.log(token);
+            
             setMessage({ text: "Email verified successfully!", type: "success" });
             localStorage.removeItem('forgotPasswordEmail');
-            setTimeout(() => navigate("/new_pass"), 2000);
+            setTimeout(() => navigate("/new_pass", { state: { token } }), 2000);
         } else {
             setMessage({ text: result.error, type: "error" });
         }
     };
 
-    // ✅ Resend OTP with FormData
+    //  Resend OTP with FormData
     const handleResendOtp = async () => {
         if (!email) {
             setMessage({ text: "Email address is required", type: "error" });
@@ -183,8 +184,8 @@ const OtpForget = () => {
                 {/* Message Display */}
                 {message.text && (
                     <div className={`mt-4 p-3 rounded-md border ${message.type === "error"
-                            ? "bg-red-50 border-red-200 text-red-600"
-                            : "bg-green-50 border-green-200 text-green-600"
+                        ? "bg-red-50 border-red-200 text-red-600"
+                        : "bg-green-50 border-green-200 text-green-600"
                         }`}>
                         <p className="text-sm">{message.text}</p>
                     </div>
